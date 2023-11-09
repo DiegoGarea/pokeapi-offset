@@ -9,11 +9,12 @@ header {
   background-color: rgb(255, 197, 105);
   border-radius: 20px;
   margin: 20px;
+  border: 5px solid black;
 }
 
 .container img {
   width: 300px;
-  height: 100px;
+  height: 150px;
   object-fit: fill;
 }
 
@@ -21,7 +22,7 @@ header {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 10px;
-  margin: auto;
+  margin: 0 20px;
 }
 
 .pokemon-container img {
@@ -35,7 +36,6 @@ header {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: rgb(255, 197, 105);
   border-radius: 20px;
 }
 
@@ -66,4 +66,31 @@ header {
   border-radius: 20px;
   cursor: pointer;
   padding: 20px 100px;
+  border: 5px solid black;
+}
+
+.parallax-effect {
+  background: include background;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  height: 300px;
+  background-color: rgb(255, 197, 105);
+  color: white;
+  border: 5px solid black;
+  border-radius: 20px;
+  transform-style: preserve-3d;
+}
+
+.parallax-effect .inner-element {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 35px;
+  font-style: italic;
+  color: white;
+  transform: translateZ(60px);
 }
