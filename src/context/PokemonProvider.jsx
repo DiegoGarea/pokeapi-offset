@@ -20,6 +20,14 @@ const PokemonProvider = ({children}) => {
     setPokemons([...pokemons, ...results]);
   };
 
+  // llamar pokemon por id
+  const getPokemonById = async (id, state) => {
+    const url = 'https://pokeapi.co/api/v2/';
+    const res = await fetch(`${url}pokemon/${id}`);
+    const data = await res.json();
+    state(data);
+  };
+
   useEffect(() => {
     getAllPokemons();
   }, [offset]);
@@ -32,6 +40,7 @@ const PokemonProvider = ({children}) => {
     <PokemonContext.Provider
       value={{
         pokemons,
+        getPokemonById,
         onClickLoadMore,
       }}
     >

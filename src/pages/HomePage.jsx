@@ -6,8 +6,6 @@ import Tilt from 'react-parallax-tilt';
 const HomePage = () => {
   const {pokemons, onClickLoadMore} = useContext(PokemonContext);
 
-  // console.log(pokemons);
-
   return (
     <div>
       <div className="pokemon-container">
@@ -24,14 +22,11 @@ const HomePage = () => {
               glareMaxOpacity={0.7}
               glareColor="white"
               glarePosition="all"
+              glareBorderRadius="16px"
             >
               <div className="pokemon-div inner-element">
                 <img
-                  src={
-                    pokemons.indexOf(pokemon) < 50
-                      ? pokemon.sprites.other.dream_world.front_default
-                      : pokemon.sprites.other.dream_world.front_default
-                  }
+                  src={pokemon.sprites.other.dream_world.front_default}
                   alt={`Pokemon: ${pokemon.name}`}
                 />
                 <p className="pokemon-name">{pokemon.name}</p>

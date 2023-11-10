@@ -8,13 +8,14 @@ header {
   align-items: center;
   background-color: rgb(255, 197, 105);
   border-radius: 20px;
-  margin: 20px;
+  margin: 10px auto;
+  padding: 0 250px;
   border: 5px solid black;
 }
 
 .container img {
   width: 300px;
-  height: 150px;
+  height: 130px;
   object-fit: fill;
 }
 
@@ -43,7 +44,8 @@ header {
   font-size: 1.5rem;
   font-weight: bold;
   text-transform: capitalize;
-  color: rgb(37, 23, 108);
+  color: rgb(0, 0, 0);
+  text-align: center;
 }
 
 .no-underline {
@@ -92,5 +94,77 @@ header {
   font-size: 35px;
   font-style: italic;
   color: white;
-  transform: translateZ(60px);
+  transform: translateZ(75px);
+}
+
+/* CSS for ID pokemons */
+
+.id-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.pokemon-id img {
+  width: 220px;
+  height: 220px;
+}
+
+.pokemon-div-id p {
+  font-size: 3rem;
+  font-weight: bold;
+  text-transform: capitalize;
+  color: rgb(255, 255, 255);
+  text-align: center;
+}
+
+.stats-div {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  height: 500px;
+  background-color: rgb(0, 0, 0);
+  color: white;
+  border: 5px solid rgb(255, 181, 61);
+  border-radius: 20px;
+}
+
+.margin-left {
+  margin-left: 25px;
+}
+
+.stats-div p {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-transform: capitalize;
+  color: rgb(255, 255, 255);
+  text-align: center;
+}
+
+.parallax-effect-id {
+  background: include background;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 500px;
+  height: 500px;
+  background-color: rgb(0, 0, 0);
+  color: white;
+  border: 5px solid rgb(255, 181, 61);
+  border-radius: 20px;
+  transform-style: preserve-3d;
+}
+
+.parallax-effect-id .inner-element-id {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 35px;
+  font-style: italic;
+  color: white;
+  transform: translateZ(75px);
 }
