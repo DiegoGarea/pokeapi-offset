@@ -1,4 +1,4 @@
-import {useParams} from 'react-router-dom';
+import {useParams, Link} from 'react-router-dom';
 import {useContext, useEffect, useState} from 'react';
 import {PokemonContext} from '../context/PokemonContext';
 import Tilt from 'react-parallax-tilt';
@@ -16,46 +16,39 @@ const PokemonPage = () => {
   console.log(pokemon);
 
   return (
-    <div className="id-container">
+    <>
       <Tilt
         className="parallax-effect-id"
-        perspective={600}
-        glareEnable={true}
-        glareMaxOpacity={0.7}
-        glareColor="white"
-        glarePosition="all"
-        glareBorderRadius="16px"
+        perspective={500}
+        tiltMaxAngleX={0.5}
+        tiltMaxAngleY={0.5}
       >
-        <div className="pokemon-id inner-element-id">
-          <div className="pokemon-div-id">
-            <p>{pokemon.name}</p>
+        <div className="left-container">
+          {pokemon.sprites && (
             <img
-              src={pokemon.sprites?.other.dream_world.front_default}
+              src={pokemon.sprites.other.dream_world.front_default}
               alt={`Pokemon: ${pokemon.name}`}
             />
+          )}
+        </div>
+        <div className="right-container">
+          <div className="pokemon-div-id">
+            <p>{pokemon.name}</p>
           </div>
+          {pokemon.types?.map((type) => (
+            <p key={type.type.name}>{type.type.name}</p>
+          ))}
+          {pokemon.stats?.map((stat) => (
+            <p key={stat.stat.name}>
+              {stat.stat.name}: {stat.base_stat}
+            </p>
+          ))}
         </div>
       </Tilt>
-      <Tilt
-        className="margin-left"
-        tiltEnable={true}
-        glareEnable={true}
-        glareMaxOpacity={0.5}
-        glareColor="white"
-        glarePosition="all"
-        glareBorderRadius="16px"
-      >
-        <div>
-          <div className="stats-div">
-            {pokemon.stats?.map((stat) => (
-              <p className="pokemon-name-id" key={stat.stat.name}>
-                {stat.stat.name}: {stat.base_stat}
-              </p>
-            ))}
-          </div>
-        </div>
-      </Tilt>
-    </div>
+      <Link className="back-btn" to={'/'}>
+        Atras
+      </Link>
+    </>
   );
 };
 

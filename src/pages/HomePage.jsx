@@ -7,7 +7,7 @@ const HomePage = () => {
   const {pokemons, onClickLoadMore} = useContext(PokemonContext);
 
   return (
-    <div>
+    <>
       <div className="pokemon-container">
         {pokemons.map((pokemon) => (
           <Link
@@ -23,6 +23,8 @@ const HomePage = () => {
               glareColor="white"
               glarePosition="all"
               glareBorderRadius="16px"
+              tiltMaxAngleX={10}
+              tiltMaxAngleY={10}
             >
               <div className="pokemon-div inner-element">
                 <img
@@ -38,7 +40,7 @@ const HomePage = () => {
       <div className="load-more-btn">
         <button onClick={() => onClickLoadMore()}>Cargar más</button>
       </div>
-    </div>
+    </>
   );
 };
 
