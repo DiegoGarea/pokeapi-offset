@@ -1,11 +1,13 @@
-import {useState, useEffect, useContext} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import {useParams, Link} from 'react-router-dom';
 import {PokemonContext} from '../context/PokemonContext';
+import {Loader} from '../components/Loader';
 import Tilt from 'react-parallax-tilt';
 
 const SearchPage = () => {
   const {name} = useParams();
   const [allPokemons, setAllPokemons] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   const {getGlobalPokemons} = useContext(PokemonContext);
 
@@ -16,13 +18,18 @@ const SearchPage = () => {
   );
 
   useEffect(() => {
-    getGlobalPokemons(setAllPokemons);
+    getGlobalPokemons((pokemons) => {
+      setAllPokemons(pokemons);
+      setLoading(false);
+    });
   }, []);
 
   return (
-    <div className="pokemon-container">
-      {allPokemons && (
-        <>
+    <>
+      {loading ? (
+        <Loader />
+      ) : results.length > 0 ? (
+        <div className="pokemon-container">
           {results.map((pokemon) => (
             <Link
               to={`/pokemon/${pokemon.id}`}
@@ -50,9 +57,11 @@ const SearchPage = () => {
               </Tilt>
             </Link>
           ))}
-        </>
+        </div>
+      ) : (
+        <p>No matching Pokémon found.</p>
       )}
-    </div>
+    </>
   );
 };
 

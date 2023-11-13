@@ -214,11 +214,18 @@ body {
 }
 
 .right-container p {
-  font-size: 1rem;
+  font-size: 1.1rem;
   font-weight: bold;
   text-transform: capitalize;
   color: rgb(255, 255, 255);
   text-align: center;
+}
+
+.container-loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 200px 0;
 }
 
 @media (max-width: 1300px) {
